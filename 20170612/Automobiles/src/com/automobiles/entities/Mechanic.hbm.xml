@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class name="Mechanic"  table="mechanic">
+        <id name="mechanicNo" type="int">
+            <column name="MECHANIC_NO"/>
+            <generator class="increment"/>
+        </id>
+        <property name="firstNm"  type="string" unique="false">
+            <column  name="FIRST_NM" not-null="true"/>
+        </property>
+        <property name="lastNm" type="string" unique="false">
+            <column  name="LAST_NM" not-null="true"/>
+        </property>
+        <property name="specialization"  type="string" unique="false">
+            <column  name="SPECIALIZATION" not-null="true"/>
+        </property>
+        <property  name="experience"  type="int" unique="false">
+            <column name="EXPERIENCE" not-null="true"/>
+        </property>
+        <property name="contactNo" type="int" unique="false">
+            <column name="CONTACT_NO" not-null="true"/>
+        </property>
+        <property name="emailAddress"  type="string" unique="false">
+            <column  name="EMAIL_ADDRESS" not-null="true"/>
+        </property>
+        <set  inverse="true" name="jobsheetMechanics"  table="jobsheet_mechanic" cascade="save-update">
+            <key >
+                <column name="MECHANIC_NO" not-null="true"/>
+            </key>
+            <one-to-many class="JobsheetMechanic" />
+        </set>
+    </class>
+</hibernate-mapping>

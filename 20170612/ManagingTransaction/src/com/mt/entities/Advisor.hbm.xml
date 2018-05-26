@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mt.entities">
+	<class name="Advisor" table="ADVISOR">
+		<id name="advisorNo" column="ADVISOR_NO" type="int" />
+		<property name="firstName" column="FIRST_NM" type="string" />
+		<property name="lastName" column="LAST_NM" type="string" />
+		<property name="qualification" column="QUALIFICATION" type="string" />
+		<property name="experience" column="EXPERIENCE" type="int" />
+		<property name="contactNo" column="CONTACT_NO" type="string" />
+		<property name="emailAddress" column="EMAIL_ADDRESS" type="string" />
+	</class>
+</hibernate-mapping>

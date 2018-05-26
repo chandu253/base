@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.0.201707061730-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/com/dt/common/persistence-beans.xml</config>
+		<config>src/com/dt/common/service-beans.xml</config>
+		<config>src/com/dt/common/controller-beans.xml</config>
+		<config>src/com/dt/common/application-context.xml</config>
+		<config>src/com/dt/common/aop-beans.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

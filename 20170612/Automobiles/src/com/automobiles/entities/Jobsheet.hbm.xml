@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class  name="Jobsheet"   table="jobsheet">
+        <id name="jobsheetNo" type="int">
+            <column name="JOBSHEET_NO"/>
+            <generator class="increment"/>
+        </id>
+        <property name="openedDt" type="date" unique="false">
+            <column name="OPENED_DT" not-null="true"/>
+        </property>
+        <property name="kilometers" type="int" unique="false">
+            <column name="KILOMETERS" not-null="true"/>
+        </property>
+        <property name="petrolLevel"  type="string" unique="false">
+            <column  name="PETROL_LEVEL" not-null="true"/>
+        </property>
+        <property name="jobSheetType" type="string" unique="false">
+            <column  name="JOB_SHEET_TYPE" not-null="true"/>
+        </property>
+        <property name="estimatedAmount"  type="int" unique="false">
+            <column name="ESTIMATED_AMOUNT" not-null="true"/>
+        </property>
+        <property name="deliveryEta" type="date" unique="false">
+            <column  name="DELIVERY_ETA" not-null="true"/>
+        </property>
+        <property name="status"  type="string" unique="false">
+            <column  name="STATUS" not-null="true"/>
+        </property>
+        
+        
+        <many-to-one class="Advisor"  name="advisor" unique="false" cascade="save-update">
+            <column name="ADVISOR_NO" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="Customer"  name="customer"   unique="false" cascade="save-update">
+            <column name="CUSTOMER_NO" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="ServiceCenter"  name="serviceCenter"   unique="false" cascade="save-update">
+            <column name="SERVICE_CENTER_NO" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="Vehicle"  name="vehicle"  unique="false" cascade="save-update">
+            <column name="VEHICLE_NO" not-null="true"/>
+        </many-to-one>
+        
+        <set  inverse="true"  name="jobsheetRepairses"  table="jobsheet_repairs" cascade="save-update">
+            <key >
+                <column name="JOBSHEET_NO" not-null="true"/>
+            </key>
+            <one-to-many class="JobsheetRepairs" />
+        </set>
+        <set  inverse="true"  name="jobsheetSpareparts"  table="jobsheet_sparepart" cascade="save-update">
+            <key on-delete="noaction">
+                <column name="JOBSHEET_NO" not-null="true"/>
+            </key>
+            <one-to-many class="JobsheetSparepart" />
+        </set>
+        <set  inverse="true"  name="jobsheetMechanics"   table="jobsheet_mechanic" cascade="save-update">
+            <key >
+                <column name="JOBSHEET_NO" not-null="true"/>
+            </key>
+            <one-to-many class="JobsheetMechanic" />
+        </set>
+        <set  inverse="true"  name="invoices"  table="invoice" cascade="save-update">
+            <key >
+                <column name="JOBSHEET_NO" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="Invoice" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

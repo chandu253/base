@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/book-ticket.htm">vbtc</prop>
+			</props>
+		</property>
+		<property name="interceptors">
+			<list>
+				<ref bean="maintainanceInterceptor" />
+			</list>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+	<bean id="maintainanceInterceptor" class="com.hi.interceptors.MaintainanceCheckInterceptor" />
+
+
+
+	<bean id="vbtc" class="com.hi.controller.ViewBookTicketController" />
+	<bean name="/ticket-details.htm" class="com.hi.controller.ViewTicketController" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.oto.entities">
+	<class name="Report" table="REPORT">
+		<id name="candidateNo" column="CANDIDATE_NO">
+			<generator class="foreign">
+				<param name="property">candidate</param>
+			</generator>
+		</id>
+		<property name="reportDate" column="REPORT_DT" />
+		<property name="interviewerName" column="INTERVIEWER_NM" />
+		<property name="rating" column="RATING" />
+		<property name="comments" column="COMMENTS" />
+		<one-to-one name="candidate" class="Candidate" />
+	</class>
+</hibernate-mapping>
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mtml.entities">
+	<class name="Game" table="GAME">
+		<id name="gameNo" column="GAME_NO">
+			<generator class="increment" />
+		</id>
+		<property name="name" column="G_NM" />
+		<property name="type" column="G_TYPE" />
+		<property name="conductedDate" column="C_DT" />
+		<list name="players" table="PARTICIPANTS">
+			<key column="GAME_NO" />
+			<list-index column="PLAYER_ORDER"/>
+			<many-to-many column="PLAYER_NO" class="Player" />
+		</list>
+	</class>
+</hibernate-mapping>
+
+
+
+

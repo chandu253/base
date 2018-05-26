@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:http auto-config="true">
+		<security:csrf disabled="true" />
+		<security:form-login login-page="/login.htm"
+			login-processing-url="/s_login.htm" username-parameter="j_username"
+			password-parameter="j_password" authentication-failure-url="/login.htm?error=failed" />
+		<security:logout logout-url="/logout.htm"
+			logout-success-url="/showLogout.htm" />
+
+		<security:intercept-url pattern="/requestcab.htm"
+			access="hasAuthority('user')" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="userDetailsService">
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

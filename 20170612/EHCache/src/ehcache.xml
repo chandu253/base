@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ehcache>
+	<cache name="jobsheetRegion" maxElementsInMemory="100" eternal="true" />
+</ehcache>

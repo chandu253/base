@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class  name="JobsheetRepairs"  table="jobsheet_repairs">
+        <id name="repairId" type="int">
+            <column name="REPAIR_ID"/>
+            <generator class="increment"/>
+        </id>
+        
+        <property name="repair" type="string" unique="false">
+            <column name="REPAIR" not-null="true"/>
+        </property>
+   <many-to-one class="Jobsheet" name="jobsheet" unique="false" >
+            <column name="JOBSHEET_NO" not-null="true"/>
+        </many-to-one>
+   
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class   name="Address"   table="address">
+        <id name="addressId" type="int">
+            <column name="ADDRESS_ID"/>
+            <generator class="increment"/>
+        </id>
+        <property  name="addressLine1"  type="string" unique="false">
+            <column  name="ADDRESS_LINE1" not-null="true"/>
+        </property>
+        <property name="addressLine2"  type="string" unique="false">
+            <column  name="ADDRESS_LINE2" not-null="true"/>
+        </property>
+        <property  name="city"  type="string" unique="false">
+            <column  name="CITY" not-null="true"/>
+        </property>
+        <property  name="state"  type="string" unique="false">
+            <column  name="STATE" not-null="true"/>
+        </property>
+        <property  name="zip"  type="int" unique="false">
+            <column name="ZIP" not-null="true"/>
+        </property>
+        <property  name="country"  type="string" unique="false">
+            <column  name="COUNTRY" not-null="true"/>
+        </property>
+        <set  inverse="true"  name="dealers"  table="dealer" cascade="save-update" fetch="join">
+            <key >
+                <column name="DEALER_ADDRESS_ID" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="Dealer" />
+        </set>
+        <set  inverse="true" lazy="true" name="serviceCenters"  table="service_center" cascade="save-update" fetch="join">
+            <key >
+                <column name="SERVICE_CENTER_ADDRESS_ID" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="ServiceCenter"  not-found="exception"/>
+        </set>
+        <set inverse="true"  name="customers"   table="customer" cascade="save-update" fetch="join">
+            <key >
+                <column name="CUSTOMER_ADDRESS_ID" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="Customer" />
+        </set>
+    </class>
+</hibernate-mapping>

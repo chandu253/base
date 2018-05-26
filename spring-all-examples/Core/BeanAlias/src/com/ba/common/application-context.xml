@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="samsungs8" name="s8,s8edge" class="com.ba.beans.Mobile">
+		<property name="imei" value="imei0193303" />
+		<property name="model" value="Galaxy S8" />
+		<property name="manufacturer" value="Samsung" />
+	</bean>
+	<alias name="s8" alias="galaxy,s8"/>
+
+
+
+</beans>

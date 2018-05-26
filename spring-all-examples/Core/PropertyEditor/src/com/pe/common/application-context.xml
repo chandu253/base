@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="book" class="com.pe.beans.Book">
+		<property name="isbn" value="35" />
+		<property name="title" value="Let us c" />
+		<property name="publishedDate" value="10/01/201" />
+		<property name="site" value="http://www.google.com" />
+		<property name="toc" value="C:\Intel\Logs\IntelCPHS.txt" />
+		<property name="authors" value="Yashwanth,Susan"/>
+	</bean>
+<!-- 
+	<bean id="publishedDate" class="java.util.Date" />
+	<bean id="site" class="java.net.URL">
+		<constructor-arg value="http://www.google.com" />
+	</bean>
+	<bean id="toc" class="java.io.File">
+		<constructor-arg value="C:\Intel\Logs\IntelCPHS.txt" />
+	</bean>
+ -->
+</beans>
+
+
+
+
+
+
+
+
+

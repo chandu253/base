@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfc:web-faces xmlns:wfc="http://www.stackspace.org/webfaces/config-2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.stackspace.org/webfaces/config-2.0 ../../../../../webfaces-framework/src/main/resources/META-INF/xsd/webfaces.xsd ">
+  <wfc:global-forwards>
+    <wfc:forward outcome="logout" page="/logout.jsp"/>
+  </wfc:global-forwards>
+  <wfc:command-configs>
+    <wfc:command-config commandClass="in.redbus.command.BookTicketCommand" path="/bookticket.action">
+      <wfc:forward outcome="bookedTickets" page="/ticket-details.jsp"/>
+    </wfc:command-config>
+  </wfc:command-configs>
+</wfc:web-faces>

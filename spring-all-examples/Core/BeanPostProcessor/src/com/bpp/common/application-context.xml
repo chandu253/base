@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="ebook" class="com.bpp.beans.EBook">
+		<property name="bookNo" value="25" />
+		<property name="title" value="Let us c" />
+		<property name="size" value="10" />
+	</bean>
+	<bean id="video" class="com.bpp.beans.Video">
+		<property name="videoId" value="24" />
+		<property name="title" value="Internals in C" />
+		<property name="length" value="60" />
+	</bean>
+	<bean id="instanceTrackerBeanPostProcessor" class="com.bpp.beans.InstanceTrackerBeanPostProcessor" />
+</beans>
+
+
+
+
+
+
+
+

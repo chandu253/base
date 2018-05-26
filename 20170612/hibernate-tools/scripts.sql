@@ -1,0 +1,1 @@
+create table address (ADDRESS_ID integer not null, ADDRESS_LINE1 varchar(70) not null, ADDRESS_LINE2 varchar(90) not null, CITY varchar(50) not null, STATE varchar(50) not null, ZIP integer not null, COUNTRY varchar(45) not null, primary key (ADDRESS_ID))

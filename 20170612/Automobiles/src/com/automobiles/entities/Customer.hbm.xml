@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+	<class name="Customer" table="customer">
+		<id name="customerNo" column="CUSTOMER_NO" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="firstNm" column="FIRST_NM" type="string" />
+		<property name="lastNm" type="string">
+			<column name="LAST_NM" />
+		</property>
+		<property name="mobile" type="int">
+			<column name="MOBILE" />
+		</property>
+		<property name="emailAddress" type="string">
+			<column length="45" name="EMAIL_ADDRESS" />
+		</property>
+		<many-to-one class="Address" name="address" unique="false"
+			cascade="save-update">
+			<column name="CUSTOMER_ADDRESS_ID" not-null="true" unique="true" />
+		</many-to-one>
+		<set inverse="true" name="jobsheets" table="jobsheet" cascade="save-update">
+			<key>
+				<column name="CUSTOMER_NO" not-null="true" />
+			</key>
+			<one-to-many class="Jobsheet" />
+		</set>
+	</class>
+</hibernate-mapping>

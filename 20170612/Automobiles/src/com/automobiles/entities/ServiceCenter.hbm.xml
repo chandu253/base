@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+	<class name="ServiceCenter" table="service_center">
+		<id name="serviceCenterNo" type="int">
+			<column name="SERVICE_CENTER_NO" />
+			<generator class="increment" />
+		</id>
+		<many-to-one class="Address" name="address" unique="false"
+			cascade="save-update">
+			<column name="SERVICE_CENTER_ADDRESS_ID" not-null="true"
+				unique="true" />
+		</many-to-one>
+		<many-to-one class="Dealer" name="dealer" unique="false"
+			update="true" cascade="save-update">
+			<column name="DEALER_CODE" not-null="true" />
+		</many-to-one>
+		<property name="serviceCenterNm" type="string">
+			<column name="SERVICE_CENTER_NM" not-null="true" />
+		</property>
+		<property name="contactNo" type="int" unique="false">
+			<column name="CONTACT_NO" not-null="true" />
+		</property>
+		<property name="emailAddress" type="string" unique="false">
+			<column name="EMAIL_ADDRESS" not-null="true" />
+		</property>
+		<set inverse="true" name="jobsheets" table="jobsheet" cascade="save-update">
+			<key>
+				<column name="SERVICE_CENTER_NO" not-null="true" />
+			</key>
+			<one-to-many class="Jobsheet" />
+		</set>
+	</class>
+	<query name="serviceCentersByLocations"><![CDATA[select sc from ServiceCenter sc inner join sc.address address where address.addressLine1 in :locations ]]></query>
+</hibernate-mapping>
+
+
+
+
+
+

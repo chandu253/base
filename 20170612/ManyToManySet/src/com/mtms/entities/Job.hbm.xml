@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mtms.entities">
+	<class name="Job" table="JOB">
+		<id name="jobNo" column="JOB_NO">
+			<generator class="increment" />
+		</id>
+		<property name="title" column="TITLE" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="positions" column="POSITIONS" />
+		<set name="applicants" table="JOB_MEMBER" cascade="all">
+			<key column="APPLIED_JOB_NO" />
+			<many-to-many column="APPLIED_MEMBER_NO" class="Member" />
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+

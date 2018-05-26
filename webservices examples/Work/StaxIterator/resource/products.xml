@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<products>
+	<product>
+		<product-code>p393</product-code>
+		<product-name>Television</product-name>
+		<description>LED 32 Inch Smart Tv</description>
+		<price>33045</price>
+	</product>
+	<product>
+		<product-code>p93</product-code>
+		<product-name>Washing Machine</product-name>
+		<description>LG Washing Machine 10KG</description>
+		<price>34435</price>
+	</product>
+
+</products>
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otms.entities">
+	<class name="Resource" table="RESOURCE">
+		<id name="resourceNo" column="RESOURCE_NO">
+			<generator class="increment" />
+		</id>
+		<property name="resourceName" column="RESOURCE_NM" />
+		<property name="role" column="ROLE" />
+		<property name="startDate" column="START_DT" />
+		<property name="endDate" column="END_DT" />
+		<many-to-one name="project" column="ASG_PROJECT_NO"
+			not-null="false" />
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+

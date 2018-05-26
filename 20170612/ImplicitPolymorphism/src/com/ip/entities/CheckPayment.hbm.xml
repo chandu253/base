@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ip.entities">
+	<class name="CheckPayment" table="CHECK_PAYMENT">
+		<id name="paymentNo" column="PAYMENT_NO">
+			<generator class="increment" />
+		</id>
+		<property name="description" column="DESCRIPTION" />
+		<property name="paidDate" column="PAID_DT" />
+		<property name="amount" column="AMOUNT" />
+		<property name="checkNo" column="CHECK_NO" />
+		<property name="issuedBank" column="ISSUED_BANK" />
+		<property name="checkDate" column="CHECK_DT" />
+	</class>
+</hibernate-mapping>

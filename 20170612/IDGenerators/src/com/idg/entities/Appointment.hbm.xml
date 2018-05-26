@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.idg.entities">
+	<class name="Appointment" table="APPOINTMENT">
+		<id name="appointmentNo" column="APPOINTMENT_NO">
+			<!-- forumula :- (max_lo * next_hi) + next_hi -->
+			<!-- <generator class="seqhilo">
+				<param name="max_lo">5</param>
+				<param name="sequence">appointment_sequence</param>
+			</generator> -->
+			<!-- <generator class="guid"/> -->
+			<!-- <generator class="uuid"/> -->
+			<generator class="select">
+				<param name="key">mobileNumber</param>
+			</generator>
+		</id>
+		<property name="appointmentDate" column="APPOINTMENT_DT" />
+		<property name="doctor" />
+		<property name="patient" />
+		<property name="mobileNumber" column="MOBILE_NBR" />
+		<property name="emailAddress" column="EMAIL_ADR" />
+	</class>
+</hibernate-mapping>

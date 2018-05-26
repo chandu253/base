@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>HdfcBank</display-name>
+
+
+	<servlet>
+		<servlet-name>jersey</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<!-- <init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.hdfcbank.resource</param-value>
+		</init-param> -->
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.hdfcbank.common.HdfcBankApplication</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jersey</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>account details</web-resource-name>
+			<url-pattern>/api/account/*</url-pattern>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user</role-name>
+			<role-name>clerk</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>change registered mobile</web-resource-name>
+			<url-pattern>/api/account/*</url-pattern>
+			<http-method>PUT</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>clerk</role-name>
+		</auth-constraint>
+	</security-constraint> -->
+
+	<security-role>
+		<description>account holder</description>
+		<role-name>user</role-name>
+	</security-role>
+	<security-role>
+		<description>Staff of the bank</description>
+		<role-name>clerk</role-name>
+	</security-role>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

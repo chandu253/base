@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="JavaExecutionTask" basedir="." default="run">
+	<target name="clean">
+		<delete dir="build/classes" />
+		<delete dir="build" />
+	</target>
+	<target name="create-dirs" depends="clean">
+		<mkdir dir="build" />
+		<mkdir dir="build/classes" />
+	</target>
+	<target name="compile" depends="create-dirs">
+		<javac srcdir="src" destdir="build/classes" />
+	</target>
+	<target name="run" depends="compile">
+		<java classname="com.jet.test.JETTest" classpath="build/classes" />
+	</target>
+</project>

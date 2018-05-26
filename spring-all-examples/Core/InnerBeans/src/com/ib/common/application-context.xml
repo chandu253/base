@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="biCycle" class="com.ib.beans.BiCycle">
+		<property name="id" value="1" />
+		<property name="manufacturer" value="Atlas" />
+		<property name="chain">
+			<bean class="com.ib.beans.Chain">
+				<constructor-arg value="100" />
+				<constructor-arg value="5" />
+			</bean>
+		</property>
+	</bean>
+
+</beans>
+
+
+
+

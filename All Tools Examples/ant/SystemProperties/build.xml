@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="SystemProperties" basedir="." default="sysprint">
+	
+	<target name="sysprint">
+		<echo>${java.version}</echo>
+	</target>
+</project>

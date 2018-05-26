@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.2 Built on : Apr 17, 2012 (05:33:49 
+	IST) -->
+<serviceGroup>
+	<service name="oyoEndpointServices">
+		<module ref="rampart" />
+
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+				class="com.oyo.luxury.services.OyoEndpointServicesMessageReceiverInOut" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.oyo.luxury.services.OyoEndpointServicesSkeleton
+		</parameter>
+		<parameter name="useOriginalwsdl">false</parameter>
+		<parameter name="modifyUserWSDLPortAddress">true</parameter>
+		<operation name="bookAccomodation" mep="http://www.w3.org/ns/wsdl/in-out"
+			namespace="http://oyo.com/luxury/services">
+			<actionMapping>http://oyo.com/luxury/services/bookAccomodation
+			</actionMapping>
+			<outputActionMapping>http://oyo.com/luxury/services/oyoEndpoint/bookAccomodationResponse
+			</outputActionMapping>
+			<faultActionMapping faultName="fault1">http://oyo.com/luxury/services/oyoEndpoint/bookAccomodation/Fault/fault1
+			</faultActionMapping>
+			<faultActionMapping faultName="AccomodationFault">http://oyo.com/luxury/services/oyoEndpoint/bookAccomodation/Fault/fault1
+			</faultActionMapping>
+			<faultActionMapping faultName="AccomodationFault_Exception">http://oyo.com/luxury/services/oyoEndpoint/bookAccomodation/Fault/fault1
+			</faultActionMapping>
+			<faultActionMapping faultName="accomodationFault">urn:bookAccomodationaccomodationFault
+			</faultActionMapping>
+		</operation>
+		<wsp:Policy wsu:Id="UsernameToken"
+			xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+			xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+			<wsp:ExactlyOne>
+				<wsp:All>
+					<sp:SupportingTokens
+						xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+						<wsp:Policy>
+							<sp:UsernameToken
+								sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient" />
+						</wsp:Policy>
+					</sp:SupportingTokens>
+
+					<ramp:RampartConfig xmlns:ramp="http://ws.apache.org/rampart/policy">
+						<!-- <ramp:user>alice</ramp:user> -->
+						<ramp:passwordCallbackClass>com.oyo.handler.UsernameTokenPasswordHandler</ramp:passwordCallbackClass>
+					</ramp:RampartConfig>
+				</wsp:All>
+			</wsp:ExactlyOne>
+		</wsp:Policy>
+	</service>
+</serviceGroup>

@@ -1,0 +1,40 @@
+1) Make an executable Jar file
+...............................
+d:\hms-app
+   |-src
+     |-HMSRunner.java
+     |-manifest.txt
+   |-bin
+   |-lib
+     |-hms.jar
+d:\hms-app\lib:/> java -jar hms.jar
+
+2) Make an executable Jar with dependent Jars
+
+d:\hms-app
+   |-core
+     |-src
+       |-HMSRunner.java
+       |-manifest.txt
+     |-bin
+       |-HMSRunner.class
+   |-ext
+     |-src
+     |-bin
+       |-Messenger.class
+   |-lib
+     |-hms.jar
+     |-hms-ext.jar
+
+
+
+
+
+
+
+
+
+
+
+
+

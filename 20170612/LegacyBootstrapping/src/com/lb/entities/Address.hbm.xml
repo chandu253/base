@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lb.entities">
+	<class name="Address" table="ADDRESS">
+		<id name="addressId" column="ADDRESS_ID" />
+		<property name="addressLine1" column="ADDRESS_LINE1" />
+		<property name="addressLine2" column="ADDRESS_LINE2" />
+		<property name="city" />
+		<property name="state" />
+		<property name="zip" />
+		<property name="country" />
+	</class>
+</hibernate-mapping>

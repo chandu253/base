@@ -1,0 +1,2 @@
+Main-Class: com.hms.dep.HMSExtensionRunner
+Class-Path: ./hms-ext.jar

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="btechcsc" class="com.cm.beans.Course">
+		<property name="subjects">
+			<list value-type="java.lang.String">
+				<value>Data Structures</value>
+				<value>C</value>
+				<value>S.E</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="btechece" class="com.cm.beans.Course" parent="btechcsc">
+		<property name="subjects">
+			<list value-type="java.lang.String" merge="true">
+				<value>E.D.C</value>
+				<value>Embedded Systems</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
+
+
+
+
+
+
+

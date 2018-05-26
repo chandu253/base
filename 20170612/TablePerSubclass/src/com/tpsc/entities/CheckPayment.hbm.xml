@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.tpsc.entities">
+	<!-- Data for sub-class has to be stored based on join relationship -->
+	<joined-subclass name="CheckPayment" extends="Payment"
+		table="CHECK_PAYMENT">
+		<!-- foreign key column -->
+		<key column="CHECK_PAYMENT_NO" />
+		<property name="checkNo" column="CHECK_NO" />
+		<property name="checkDate" column="CHECK_DT" />
+		<property name="issuedBank" column="ISSUED_BANK" />
+	</joined-subclass>
+</hibernate-mapping>

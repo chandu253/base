@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class  name="Invoice" table="invoice">
+        <id name="invoiceNo" type="int">
+            <column name="INVOICE_NO"/>
+            <generator class="increment"/>
+        </id>
+        
+        <property name="invoiceDt" type="date" unique="false">
+            <column  name="INVOICE_DT" not-null="true"/>
+        </property>
+        <property name="invoiceAmount"  type="int" unique="false">
+            <column name="INVOICE_AMOUNT" not-null="true"/>
+        </property>
+        <set inverse="true" name="bills" table="bill" cascade="save-update">
+            <key >
+                <column name="INVOICE_NO" not-null="false" unique="true"/>
+            </key>
+            <one-to-many class="Bill" />
+        </set>
+        <set inverse="true" name="repairsConducteds"  table="repairs_conducted" cascade="save-update">
+            <key >
+                <column name="INVOICE_NO" not-null="false"/>
+            </key>
+            <one-to-many class="RepairsConducted" />
+        </set>
+    <many-to-one class="Jobsheet" name="jobsheet"  unique="false" cascade="save-update" >
+            <column name="JOBSHEET_NO" not-null="true" unique="true"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

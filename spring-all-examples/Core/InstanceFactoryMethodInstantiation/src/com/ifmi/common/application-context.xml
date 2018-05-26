@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="googleEngineServiceLocator" class="com.ifmi.helper.GoogleEngineServiceLocator" />
+
+	<bean id="indiaGoogleEngine" factory-bean="googleEngineServiceLocator"
+		factory-method="locateIndiaGoogleEngine" />
+
+	<bean id="usGoogleEngine" factory-bean="googleEngineServiceLocator"
+		factory-method="locateUSGoogleEngine" />
+
+	<bean id="geoMapUI" class="com.ifmi.beans.GeoMapUI">
+		<property name="googleEngine" ref="usGoogleEngine" />
+	</bean>
+</beans>
+
+
+

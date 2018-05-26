@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ConditionalTargets" basedir="." default="init">
+	<condition property="isJdk1.8">
+		<equals arg1="${ant.java.version}" arg2="1.9" />
+	</condition>
+	<target name="ifNotJdk1.8Fail" unless="${isJdk1.8}">
+		<fail message="Jdk 1.8 is required"/>
+	</target>
+	<target name="init" depends="ifNotJdk1.8Fail,finish"/>
+	<target name="finish">
+		<echo>Finished</echo>
+	</target>
+</project>

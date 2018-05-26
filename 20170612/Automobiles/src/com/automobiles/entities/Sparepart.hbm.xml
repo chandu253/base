@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class name="Sparepart"  table="sparepart">
+        <id name="sparepartNo" type="int">
+            <column name="SPAREPART_NO"/>
+            <generator class="increment"/>
+        </id>
+        <property name="sparepartNm" type="string" unique="false">
+            <column  name="SPAREPART_NM" not-null="true"/>
+        </property>
+        <property name="modelNo"  type="string" unique="false">
+            <column name="MODEL_NO" not-null="true"/>
+        </property>
+        <property name="purchaseDt"  type="date" unique="false">
+            <column  name="PURCHASE_DT" not-null="true"/>
+        </property>
+        <property name="price"  type="int" unique="false">
+            <column name="PRICE" not-null="true"/>
+        </property>
+        <one-to-one class="JobsheetSparepart" constrained="false" embed-xml="true" name="jobsheetSparepart"/>
+    </class>
+</hibernate-mapping>

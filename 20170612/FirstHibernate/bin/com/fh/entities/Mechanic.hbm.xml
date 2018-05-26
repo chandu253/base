@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fh.entities.Mechanic" table="MECHANIC">
+		<id name="mechanicNo" column="MECHANIC_NO" />
+		<property name="firstName" column="FIRST_NM" />
+		<property name="lastName" column="LAST_NM" />
+		<property name="specialization" column="SPECIALIZATION" />
+		<property name="experience" column="EXPERIENCE" />
+		<property name="contactNo" column="CONTACT_NO" />
+		<property name="emailAddress" column="EMAIL_ADDRESS" />
+	</class>
+</hibernate-mapping>

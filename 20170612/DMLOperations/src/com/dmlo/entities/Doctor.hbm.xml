@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dmlo.entities">
+	<class name="Doctor" table="DOCTOR" dynamic-update="true">
+		<id name="doctorNo" column="DOCTOR_NO" unsaved-value="-1">
+			<generator class="increment" />
+		</id>
+		<property name="doctorName" column="DOCTOR_NM" />
+		<property name="specialization" column="SPECIALIZATION" />
+		<property name="qualification" column="QUALIFICATION" />
+		<property name="experience" column="EXPERIENCE" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otmm.entities">
+	<class name="Package" table="PACKAGE">
+		<id name="trackingNo" column="TRACKING_NO">
+			<generator class="increment" />
+		</id>
+		<property name="description" column="DESCRIPTION" />
+		<property name="source" column="SOURCE" />
+		<property name="destination" column="DESTINATION" />
+		<property name="weight" column="WEIGHT" />
+	</class>
+</hibernate-mapping>

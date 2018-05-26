@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class  mutable="true" name="Vehicle" table="vehicle">
+        <id name="vehicleNo" type="int">
+            <column name="VEHICLE_NO"/>
+            <generator class="increment"/>
+        </id>
+        <property name="vehicleModelNm" type="string" unique="false">
+            <column  name="VEHICLE_MODEL_NM" not-null="true"/>
+        </property>
+        <property name="color" type="string" unique="false">
+            <column name="COLOR" not-null="true"/>
+        </property>
+        <property name="vehiclePurchaseDt"  type="date" unique="false">
+            <column  name="VEHICLE_PURCHASE_DT" not-null="true"/>
+        </property>
+        <property name="chasisNo"  type="string" unique="false">
+            <column  name="CHASIS_NO" not-null="true"/>
+        </property>
+        <property name="engineNo"  type="string" unique="false">
+            <column  name="ENGINE_NO" not-null="true"/>
+        </property>
+        <property  name="registrationNo"  type="string" unique="false">
+            <column  name="REGISTRATION_NO" not-null="true"/>
+        </property>
+        <property name="batteryNo" type="string" unique="false">
+            <column  name="BATTERY_NO" not-null="true"/>
+        </property>
+        <set inverse="true" name="jobsheets"  table="jobsheet" cascade="save-update">
+            <key >
+                <column name="VEHICLE_NO" not-null="false"/>
+            </key>
+            <one-to-many class="Jobsheet" />
+        </set>
+    </class>
+</hibernate-mapping>

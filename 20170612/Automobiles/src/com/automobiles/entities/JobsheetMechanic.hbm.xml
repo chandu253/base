@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class name="JobsheetMechanic"  table="jobsheet_mechanic">
+        <id name="jobsheetMechanicid" column="JOBSHEET_CUST_ID">
+        <generator class="increment"></generator>
+        </id>
+        <many-to-one class="Jobsheet"  name="jobsheet"   unique="false"  cascade="save-update">
+            <column name="JOBSHEET_NO" not-null="true" />
+        </many-to-one>
+        <many-to-one class="Mechanic" name="mechanic"  unique="false"   cascade="save-update" >
+            <column name="MECHANIC_NO" not-null="true"/>
+        </many-to-one>
+        <property name="duration" type="int" unique="false">
+            <column name="DURATION" not-null="true"/>
+        </property>
+        <property  name="comments"  type="string" unique="false">
+            <column  name="COMMENTS" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

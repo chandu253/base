@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mtmec.entities">
+	<class name="BlogUserRatings" table="BLOG_USER_RATINGS">
+		<composite-id name="blogUserRatingPK">
+			<key-many-to-one name="blog" column="BLOG_ID" />
+			<key-many-to-one name="systemUser" column="SYSTEM_USER_ID" />
+		</composite-id>
+		<property name="rating" column="RATING"/>
+		<property name="comments" column="COMMENTS"/>
+	</class>
+</hibernate-mapping>

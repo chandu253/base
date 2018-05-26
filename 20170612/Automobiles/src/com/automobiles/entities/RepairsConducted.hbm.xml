@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class name="RepairsConducted" table="repairs_conducted">
+        <id name="repairConductedNo" type="int">
+            <column name="REPAIR_CONDUCTED_NO"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="Invoice" name="invoice"   unique="false" cascade="save-update">
+            <column name="INVOICE_NO" not-null="false"/>
+        </many-to-one>
+        <property name="repairConducted"  type="string" unique="false">
+            <column  name="REPAIR_CONDUCTED" not-null="true"/>
+        </property>
+        <property name="repairCharges"  type="int" unique="false">
+            <column name="REPAIR_CHARGES" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

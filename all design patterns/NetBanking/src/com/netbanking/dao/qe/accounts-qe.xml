@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<query-executor><config><driverClassname>com.mysql.jdbc.Driver</driverClassname><url>jdbc:mysql://localhost:3306/dp</url><username>root</username><password>root</password></config><sql>select account_no, account_holder_nm, balance from account</sql></query-executor>

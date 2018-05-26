@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="errors" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/add-product.htm">apc</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="apc" class="com.pm.controller.AddProductFormController">
+		<property name="formView" value="add-product" />
+		<property name="commandClass" value="com.pm.command.ProductCommand" />
+		<property name="validator" ref="productValidator"/>
+	</bean>
+	
+	<bean id="productValidator" class="com.pm.validator.ProductValidator"/>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

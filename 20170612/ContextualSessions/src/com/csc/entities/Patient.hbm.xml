@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.csc.entities">
+	<class name="Patient" table="PATIENT">
+		<id name="patientNo" column="PATIENT_NO">
+			<generator class="increment" />
+		</id>
+		<property name="patientName" column="PATIENT_NM" />
+		<property name="contactNo" column="CONTACT_NO" />
+		<property name="emailAddress" column="EMAIL_ADDR" />
+		<property name="gender" column="GENDER" />
+		<property name="age" column="AGE" />
+	</class>
+</hibernate-mapping>

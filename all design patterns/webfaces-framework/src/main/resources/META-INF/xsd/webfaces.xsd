@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.stackspace.org/webfaces/config-2.0"
+	xmlns:wfc="http://www.stackspace.org/webfaces/config-2.0"
+	elementFormDefault="qualified">
+
+	<xs:element name="web-faces" type="wfc:web-faces" />
+	<xs:complexType name="web-faces">
+		<xs:sequence>
+			<xs:element name="global-forwards" type="wfc:global-forwards" />
+			<xs:element name="command-configs" type="wfc:command-configs" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="forward">
+		<xs:attribute name="outcome" type="xs:string" use="required" />
+		<xs:attribute name="page" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="command-config">
+		<xs:sequence>
+			<xs:element name="forward" type="wfc:forward" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="path" type="xs:string" use="required" />
+		<xs:attribute name="commandClass" type="xs:string" use="required" />
+
+	</xs:complexType>
+
+	<xs:complexType name="command-configs">
+		<xs:sequence>
+			<xs:element name="command-config" type="wfc:command-config"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="global-forwards">
+		<xs:sequence>
+			<xs:element name="forward" type="wfc:forward" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.tpch.entities">
+	<subclass name="CardPayment" extends="Payment"
+		discriminator-value="card">
+		<property name="cardNo" column="CARD_NO" />
+		<property name="cardType" column="CARD_TYPE" />
+		<property name="cardHolderName" column="CARD_HOLDER_NM" />
+	</subclass>
+</hibernate-mapping>

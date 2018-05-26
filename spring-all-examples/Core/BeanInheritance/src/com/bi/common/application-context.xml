@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="baseCar" class="com.bi.beans.Car" abstract="true">
+		<constructor-arg value="0" name="id"/>
+		<constructor-arg value="Swift" name="model"/>
+		<constructor-arg value="Maruthi" name="manufacturer"/>
+		<constructor-arg value="Red" name="color"/>
+		<constructor-arg value="Petrol" name="fuelType"/>
+	</bean>
+
+	<bean id="car1" class="com.bi.beans.Car" parent="baseCar">
+		<constructor-arg value="10" name="id"/>
+	</bean>
+
+	<!-- <bean id="bus" class="com.bi.beans.Bus" parent="car1"/> -->
+
+
+</beans>
+
+
+
+
+
+

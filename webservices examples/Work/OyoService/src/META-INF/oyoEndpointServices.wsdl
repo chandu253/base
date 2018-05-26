@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="oyoEndpoint" targetNamespace="http://oyo.com/luxury/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:olt="http://oyo.com/luxury/types" xmlns:ols="http://oyo.com/luxury/services" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://oyo.com/luxury/types">
+			<xsd:element name="check-in">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="room-type" type="xsd:string"/>
+						<xsd:element name="accomodation-date" type="xsd:date"/>
+						<xsd:element name="noOfDays" type="xsd:int"/>
+						<xsd:element name="person-name" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="receipt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"/>
+						<xsd:element name="estimated-amount" type="xsd:float"/>
+						<xsd:element name="status" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="accomodation-failed-fault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="error-type" type="xsd:string"/>
+						<xsd:element name="cause" type="xsd:string"/>
+						<xsd:element name="detail" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="accomodationFault">
+    <wsdl:part name="accomodationFault" element="olt:accomodation-failed-fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookAccomodation">
+    <wsdl:part name="in" element="olt:check-in">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookAccomodationResponse">
+    <wsdl:part name="out" element="olt:receipt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="oyoEndpoint">
+    <wsdl:operation name="bookAccomodation">
+      <wsdl:input message="ols:bookAccomodation">
+    </wsdl:input>
+      <wsdl:output message="ols:bookAccomodationResponse">
+    </wsdl:output>
+      <wsdl:fault name="fault1" message="ols:accomodationFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="oyoEndpointSOAPBinding" type="ols:oyoEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="bookAccomodation">
+      <soap:operation soapAction="http://oyo.com/luxury/services/bookAccomodation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="oyoEndpointServices">
+    <wsdl:port name="oyoEndpointSOAP11HttpPort" binding="ols:oyoEndpointSOAPBinding">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 Jan, 2018 12:12:39 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.contactmgmt.entities">
+	<class name="Contact" table="contact">
+		<id name="contactId" column="contact_id">
+			<generator class="identity" />
+		</id>
+		<property name="contactName" column="contact_nm" />
+		<property name="addressLine1" column="address_line1" />
+		<property name="addressLine2" column="address_line2" />
+		<property name="city" column="city" />
+		<property name="state" column="state" />
+		<property name="zip" column="zip" />
+		<property name="country" column="country" />
+		<property name="mobileNumber" column="mobile_nbr" />
+	</class>
+	<query name="byContactName"><![CDATA[from Contact c where c.contactName = ?]]></query>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+

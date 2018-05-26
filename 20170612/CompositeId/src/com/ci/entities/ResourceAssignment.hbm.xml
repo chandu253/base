@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ci.entities">
+	<class name="ResourceAssignment" table="RESOURCE_ASSIGNMENT">
+		<composite-id name="id">
+			<key-property name="resourceNo" column="RESOURCE_NO" />
+			<key-property name="projectNo" column="PROJECT_NO" />
+		</composite-id>
+		<property name="assignmentStartDate" column="ASSIGNMENT_START_DT" />
+		<property name="assignmentEndDate" column="ASSIGNMENT_END_DT" />
+		<property name="role" column="ROLE" />
+		<property name="allocationPercentage" column="ALLOCATION_PERCENTAGE" />
+	</class>
+</hibernate-mapping>

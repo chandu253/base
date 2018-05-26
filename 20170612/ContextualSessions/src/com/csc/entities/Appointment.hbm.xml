@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.csc.entities">
+	<class name="Appointment" table="APPOINTMENT">
+		<id name="appointmentNo" column="APPOINTMENT_NO">
+			<generator class="increment" />
+		</id>
+		<property name="patientNo" column="PATIENT_NO" />
+		<property name="appointmentDate" column="APPOINTMENT_DT" />
+		<property name="doctorName" column="DOCTOR_NM" />
+		<property name="comments" column="COMMENTS" />
+	</class>
+</hibernate-mapping>

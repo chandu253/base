@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otmm.entities">
+	<class name="Branch" table="BRANCH">
+		<id name="branchNo" column="BRANCH_NO">
+			<generator class="increment" />
+		</id>
+		<property name="branchName" column="BRANCH_NM" />
+		<property name="location" column="LOCATION" />
+		<property name="branchManager" column="BRANCH_MGR" />
+		<property name="contactNo" column="CONTACT_NO" />
+		<property name="emailAddress" column="EMAIL_ADDRESS" />
+		<map name="packages">
+			<key column="SOURCE_BRANCH_NO" />
+			<map-key column="AWB_NO" type="string"/>
+			<one-to-many class="Package" />
+		</map>
+	</class>
+</hibernate-mapping>
+
+
+
+

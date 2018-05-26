@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ExtVariablesAndRunJar" basedir="." default="init">
+	<property file="build.properties" />
+
+	<target name="init" depends="failIfNotJdk1.8,clean,create-dirs,compile,package,execute" />
+	<condition property="isJdk1.8">
+		<equals arg1="${ant.java.version}" arg2="${app.java.version}" />
+	</condition>
+	<target name="failIfNotJdk1.8" unless="${isJdk1.8}">
+		<fail message="jdk 1.8 is required" />
+	</target>
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${build.dir}" />
+	</target>
+	<target name="create-dirs">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" />
+	</target>
+	<target name="package">
+		<jar destfile="${dist.dir}${file.separator}${ant.project.name}.jar" basedir="${classes.dir}" />
+	</target>
+	<target name="execute">
+		<java classname="com.evarj.test.Test" classpath="${dist.dir}${file.separator}${ant.project.name}.jar" />
+	</target>
+</project>
+
+
+
+
+
+
+
+
+
+
+
+

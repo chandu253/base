@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mtmm.entities">
+	<class name="Product" table="PRODUCT">
+		<id name="productNo" column="PRODUCT_NO">
+			<generator class="increment" />
+		</id>
+		<property name="description" column="DESCRIPTION" />
+		<property name="ownerName" column="OWNER_NM" />
+		<property name="basePrice" column="BASE_PRICE" />
+		<map name="bidders" table="BIDS">
+			<key column="PRODUCT_NO" />
+			<map-key column="BID_AMOUNT" type="float"/>
+			<many-to-many column="USER_NO" class="User" />
+		</map>
+	</class>
+</hibernate-mapping>
+
+
+
+
+

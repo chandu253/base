@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otms.entities">
+	<class name="Project" table="PROJECT">
+		<id name="projectNo" column="PROJECT_NO">
+			<generator class="increment" />
+		</id>
+		<property name="title" column="TITLE" />
+		<property name="description" />
+		<property name="duration" />
+		<set name="resources" cascade="save-update,delete-orphan">
+			<key column="ASG_PROJECT_NO" not-null="false" />
+			<one-to-many class="Resource" />
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+

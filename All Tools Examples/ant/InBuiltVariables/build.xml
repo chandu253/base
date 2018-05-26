@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="InBuiltVariables" basedir="." default="print">
+	<target name="print">
+		<echo>${ant.home}</echo>
+		<echo>${ant.file}</echo>
+		<echo>${ant.java.version}</echo>
+		<echo>${ant.library.dir}</echo>
+		<echo>${ant.project.name}</echo>
+		<echo>${ant.project.default-target}</echo>
+		<echo>${ant.version}</echo>
+			
+	</target>
+</project>

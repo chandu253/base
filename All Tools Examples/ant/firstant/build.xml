@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="firstant" default="print">
+  <target name="print">
+	<echo>Hello Ant!</echo>
+  </target>
+</project>

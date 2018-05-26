@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="TargetDependencies" basedir="." default="init">
+	<target name="init" depends="create-dirs,compile,run" />
+	<target name="create-dirs">
+		<mkdir dir="build" />
+		<mkdir dir="build/classes" />
+	</target>
+	<target name="compile">
+		<javac srcdir="src" destdir="build/classes" />
+	</target>
+	<target name="run">
+		<java classname="com.td.test.TDTest" classpath="build/classes" />
+	</target>
+</project>

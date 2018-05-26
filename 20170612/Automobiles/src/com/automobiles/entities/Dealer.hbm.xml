@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities">
+    <class  name="Dealer"  table="dealer">
+        <id name="dealerCode" type="int">
+            <column name="DEALER_CODE"/>
+            <generator class="increment"/>
+        </id>
+        
+        <property name="dealerNm"  type="string" unique="false">
+            <column  name="DEALER_NM" not-null="true"/>
+        </property>
+        <property name="registrationDt" type="date" unique="false">
+            <column  name="REGISTRATION_DT" not-null="true"/>
+        </property>
+        <property  name="contactNo"  type="int" unique="false">
+            <column name="CONTACT_NO" not-null="true"/>
+        </property>
+        <property  name="emailAddress" type="string" unique="false">
+            <column  name="EMAIL_ADDRESS" not-null="true"/>
+        </property>
+        <set  name="serviceCenters"  table="service_center" inverse="true" cascade="save-update">
+            <key >
+                <column name="DEALER_CODE" not-null="true"/>
+            </key>
+            <one-to-many class="ServiceCenter" />
+        </set>
+    <many-to-one class="Address"   name="address"  cascade="save-update" >
+            <column name="DEALER_ADDRESS_ID" not-null="true" unique="true"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

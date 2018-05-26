@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.msf.entities">
+	<class name="Vehicle" table="VEHICLE">
+		<id name="vehicleNo" column="VEHICLE_NO" />
+		<property name="vehicleModelName" column="VEHICLE_MODEL_NM" />
+		<property name="color" />
+		<property name="chasisNo" column="CHASIS_NO" />
+		<property name="registrationNo" column="REGISTRATION_NO" />
+		<property name="engineNo" column="ENGINE_NO" />
+		<property name="batteryNo" column="BATTERY_NO" />
+		<property name="purchaseDate" column="VEHICLE_PURCHASE_DT"
+			type="date" />
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities" >
+    <class  name="Bill"   table="bill">
+        <id name="billNo" type="int">
+            <column name="BILL_NO"/>
+            <generator class="increment"/>
+        </id>
+        
+        <property name="billDt" type="date" unique="false">
+            <column  name="BILL_DT" not-null="true"/>
+        </property>
+        <property name="amount"  type="int" unique="false">
+            <column name="AMOUNT" not-null="true"/>
+        </property>
+        <property name="discount"  type="int" unique="false">
+            <column name="DISCOUNT" not-null="true"/>
+        </property>
+        <property name="netAmount"  type="int" unique="false">
+            <column name="NET_AMOUNT" not-null="true"/>
+        </property>
+        <property  name="paymentType"  type="string" unique="false">
+            <column  name="PAYMENT_TYPE" not-null="true"/>
+        </property>
+    <many-to-one class="Invoice"   name="invoice"   unique="false" cascade="save-update">
+            <column name="INVOICE_NO" not-null="false" unique="true"/>
+        </many-to-one>
+    
+    </class>
+</hibernate-mapping>

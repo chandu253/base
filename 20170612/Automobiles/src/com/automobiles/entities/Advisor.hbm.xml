@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.automobiles.entities" >
+    <class  name="Advisor"   table="advisor">
+        <id name="advisorNo" type="int">
+            <column name="ADVISOR_NO"/>
+            <generator class="increment"/>
+        </id>
+        <property  name="firstNm"  type="string" unique="false">
+            <column  name="FIRST_NM" not-null="true"/>
+        </property>
+        <property  name="lastNm"  type="string" unique="false">
+            <column  name="LAST_NM" not-null="true"/>
+        </property>
+        <property name="qualification"  type="string" unique="false">
+            <column  name="QUALIFICATION" not-null="true"/>
+        </property>
+        <property name="experience"  type="int" unique="false">
+            <column name="EXPERIENCE" not-null="true"/>
+        </property>
+        <property name="contactNo" type="int" unique="false">
+            <column name="CONTACT_NO" not-null="true"/>
+        </property>
+        <property  name="emailAddress"  type="string" unique="false">
+            <column  name="EMAIL_ADDRESS" not-null="true"/>
+        </property>
+        <set inverse="true"  name="jobsheets"   table="jobsheet" cascade="save-update">
+            <key >
+                <column name="ADVISOR_NO" not-null="true"/>
+            </key>
+            <one-to-many class="Jobsheet" />
+        </set>
+    </class>
+</hibernate-mapping>
